@@ -250,9 +250,14 @@ The model uses the following default settings optimized for quick training:
 - **DocLayNet Dataset**: [Hugging Face Dataset](https://huggingface.co/datasets/ds4sd/DocLayNet)
 - **YOLOv8**: [Ultralytics YOLOv8](https://github.com/ultralytics/ultralytics)
 
-## 📄 License
+## 👥 Team
 
-This project is for educational and research purposes. Please refer to the DocLayNet dataset license (CDLA-Permissive-1.0) for dataset usage terms.
+| Name               | GitHub Profile                               |
+|--------------------|-----------------------------------------------|
+| Rushikesh Sonwane    | [@RushikeshSonwane03](https://github.com/RushikeshSonwane03/) |
+| Harshita Singh      | [@HS-4791](https://github.com/HS-4791)        |
+| Sujoy Dey     | [@Sujoydey29](https://github.com/Sujoydey29)        |
+
 
 ## 🤝 Contributing
 
