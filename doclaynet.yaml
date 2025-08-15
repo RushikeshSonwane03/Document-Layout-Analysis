@@ -1,0 +1,5 @@
+path: F:\DL\document_layout_analysis\doclaynet_yolo
+train: images/train
+val: images/val
+test: images/test
+names: ['Caption', 'Footnote', 'Formula', 'List-item', 'Page-footer', 'Page-header', 'Picture', 'Section-header', 'Table', 'Text', 'Title']

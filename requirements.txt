@@ -1,0 +1,9 @@
+ultralytics==8.3.0
+datasets==2.20.0
+pycocotools==2.0.8
+Flask
+Flask-CORS
+opencv-python
+Pillow
+
+

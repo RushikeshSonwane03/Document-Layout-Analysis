@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocLayNet - Document Layout Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-file-alt"></i>
+                <span>DocLayNet</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#results" class="nav-link">Results</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Document Layout</span>
+                    <span class="hero-subtitle">Analysis with AI</span>
+                </h1>
+                <p class="hero-description">
+                    Advanced deep learning model trained on DocLayNet dataset to detect and classify 
+                    document layout elements including titles, tables, figures, and text blocks with 
+                    state-of-the-art accuracy.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToDemo()">
+                        <i class="fas fa-upload"></i>
+                        Try Demo
+                    </button>
+                    <button class="btn btn-secondary" onclick="scrollToAbout()">
+                        <i class="fas fa-info-circle"></i>
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card">
+                    <div class="card-header">
+                        <div class="card-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <span class="card-title">Document Analysis</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="analysis-preview">
+                            <div class="element-box title-box">Title</div>
+                            <div class="element-box text-box">Text Block</div>
+                            <div class="element-box table-box">Table</div>
+                            <div class="element-box figure-box">Figure</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-elements">
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About DocLayNet</h2>
+                <p class="section-subtitle">
+                    Powered by state-of-the-art deep learning technology
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered Detection</h3>
+                    <p>YOLOv8 neural network trained on 80,863 manually annotated document pages</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>11 Layout Classes</h3>
+                    <p>Detects titles, headers, text, tables, figures, captions, formulas, and more</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightning-bolt"></i>
+                    </div>
+                    <h3>Real-time Processing</h3>
+                    <p>Fast inference with optimized model architecture for instant results</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>High Accuracy</h3>
+                    <p>Trained on diverse document types for robust real-world performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Try the Demo</h2>
+                <p class="section-subtitle">
+                    Upload a document image to see layout analysis in action
+                </p>
+            </div>
+            <div class="demo-container">
+                <div class="upload-section">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-content">
+                            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                            <h3>Drop your document here</h3>
+                            <p>or click to browse files</p>
+                            <input type="file" id="fileInput" accept="image/*" hidden>
+                            <button class="btn btn-outline" onclick="document.getElementById('fileInput').click()">
+                                Choose File
+                            </button>
+                        </div>
+                    </div>
+                    <div class="upload-info">
+                        <div class="info-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Supports JPG, PNG formats</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Maximum file size: 10MB</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Instant processing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="results-section" id="resultsSection" style="display: none;">
+                    <div class="results-header">
+                        <h3>Analysis Results</h3>
+                        <div class="results-stats" id="resultsStats"></div>
+                    </div>
+                    <div class="results-content">
+                        <div class="image-container">
+                            <img id="resultImage" alt="Analyzed document">
+                        </div>
+                        <div class="detections-list" id="detectionsList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results" class="results">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Model Performance</h2>
+                <p class="section-subtitle">
+                    Benchmarked on DocLayNet test dataset
+                </p>
+            </div>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">92.5%</div>
+                    <div class="metric-label">mAP@50</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">87.3%</div>
+                    <div class="metric-label">mAP@50-95</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">11</div>
+                    <div class="metric-label">Classes</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">80K+</div>
+                    <div class="metric-label">Training Images</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3>Analyzing Document...</h3>
+            <p>Please wait while our AI processes your image</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-file-alt"></i>
+                    <span>DocLayNet</span>
+                </div>
+                <div class="footer-text">
+                    <p>Powered by YOLOv8 and DocLayNet dataset</p>
+                    <p>&copy; 2024 Document Layout Analysis Project</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
